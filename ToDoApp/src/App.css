@@ -1,0 +1,13 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+#main-container{
+  background-color: #3b3b3b;
+  width: 50vw;
+  height: 80vh;
+}
