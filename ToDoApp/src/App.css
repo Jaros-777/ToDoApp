@@ -8,6 +8,27 @@
 
 #main-container{
   background-color: #3b3b3b;
-  width: 50vw;
+  width: 40vw;
   height: 80vh;
+  padding: 1vh;
+}
+
+li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-container{
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2a2a;
+  margin: 1vh;
+}
+
+.task-container p{
+  width: 80%;
 }
