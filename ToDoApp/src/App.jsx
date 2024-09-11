@@ -3,14 +3,16 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [taskList, setTaskList] = useState([{ id: 1, name: "lol" }]);
+  const [taskList, setTaskList] = useState([{ id: 1, name: "First Task" , completed: false}]);
   const [taskName, setTaskName] = useState("");
+
 
   function addTask() {
     if (taskName != "") {
       const newTask = {
         id: taskList.length + 1,
         name: taskName,
+        completed: false,
       };
 
       setTaskList([...taskList, newTask]);
@@ -21,6 +23,12 @@ function App() {
   function deleteTask(taskId) {
     const updatedTasks = taskList.filter((task) => task.id !== taskId);
     setTaskList(updatedTasks);
+  }
+
+  function doneTask(taskId){
+    const newTaskList = taskList.map((task) => task.id === taskId ? {...task, completed: !task.completed} : task)
+    setTaskList(newTaskList)
+
   }
 
   return (
@@ -40,7 +48,8 @@ function App() {
           {taskList.map((t) => (
             <li key={t.id}>
               <div className="task-container">
-                <p>{t.name}</p>
+                <input type="checkbox" checked={t.completed} onChange={()=>doneTask(t.id)}/>
+                <p  style={t.completed ? {textDecoration: "line-through"} : {textDecoration: "none"}} >{t.name}</p>
                 <button onClick={() => deleteTask(t.id)}>Delete</button>
               </div>
             </li>
