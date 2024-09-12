@@ -35,10 +35,10 @@ function App() {
     <>
       <div id="main-container">
         <h1>To Do App</h1>
-        <div>
+        <div id="input-field" >
           <input
             type="text"
-            placeholder="Type text"
+            placeholder="Type task"
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
           />
@@ -49,7 +49,7 @@ function App() {
             <li key={t.id}>
               <div className="task-container">
                 <input type="checkbox" checked={t.completed} onChange={()=>doneTask(t.id)}/>
-                <p  style={t.completed ? {textDecoration: "line-through"} : {textDecoration: "none"}} >{t.name}</p>
+                <p  style={t.completed ? {textDecoration: "line-through", textDecorationColor: "red", textDecorationThickness: 5} : {textDecoration: "none"}} >{t.name}</p>
                 <button onClick={() => deleteTask(t.id)}>Delete</button>
               </div>
             </li>
